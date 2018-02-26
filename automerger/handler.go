@@ -13,6 +13,7 @@ import (
 
 func (p *PushEventHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	defer r.Body.Close()
+	w.Header().Set("Content-Type", "application/json")
 	if r.Header.Get("X-GitHub-Event") != "push" {
 		httpErrors(w, http.StatusAccepted, ErrUnknownEvent)
 		return
