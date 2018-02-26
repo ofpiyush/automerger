@@ -16,9 +16,9 @@ At [@verloop](https://github.com/verloop), we use feature branches. Whenever a f
 
 1. Someone would have to hand merge changes from `master` into each feature branch.
 
-If feature branch lagged behing, QA would raise bugs with "feature X is not working on dev/staging".
+If feature branch lagged behind, QA would raise bugs with the title "feature X stopped working on dev/staging".
 
-Needless bugs/ issues, wasted time, you get the idea.
+Needless bugs/issues raised, wasted time, you get the idea.
 
 Hand merging could be automated, so I did that.
 
