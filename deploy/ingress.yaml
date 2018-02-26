@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: automerger
+spec:
+  backend:
+    serviceName: automerger
+    servicePort: 80
+  # If you have multiple services you can use something like this.
+  # - host: foo.com
+  #   http:
+  #     paths:
+  #     - path: /automerger
+  #       backend:
+  #         serviceName: automerger
+  #         servicePort: 80
