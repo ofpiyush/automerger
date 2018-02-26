@@ -22,6 +22,8 @@ Needless bugs/issues raised, wasted time, you get the idea.
 
 Hand merging could be automated, so I did that.
 
+For more, scroll to [FAQ](#faq)
+
 
 ## How it works?
 
@@ -86,11 +88,26 @@ Two requests:
 
 * Be nice to other people.
 
-## Interesting potential next steps and contribution opportunities
+## Interesting potential next steps and opportunities to contribute
 
 * Abstract the implementation enough to add support for Bitbucket, GitLab etc.
 
 * Add support for AWS lambda so that hosting this can be cheap/free.
+
+* Add structured logging
+
+* Add metrics endpoint
+
+
+## FAQ
+
+#### Why do you need to keep feature branches updated?
+Because we show our feature branches to the QA.
+
+#### Why don't you use a develop branch and merge features into it first?
+Using a develop branch inevitably leads to a cycle `merge to develop` -> `revert to avoid blocking releases` -> `make mistake` -> `land buggy feature in production`
+
+If all changes from master were always merged into feature branches, every branch is `master` + `feature`. It is exactly like the `develop` branch, but without the scope for landing a bad feature in production.
 
 # License
 
