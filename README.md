@@ -10,7 +10,7 @@ If you want to run your own version, see the [running](#running) section below.
 
 ## Why
 
-At @verloop, we use feature branches. Whenever a feature would get merged into `master`, we would reach one of two states.
+At [@verloop](https://github.com/verloop), we use feature branches. Whenever a feature would get merged into `master`, we would reach one of two states.
 
 1. All our feature branches would lag behind.
 
@@ -27,13 +27,13 @@ Hand merging could be automated, so I did that.
 
 Whenever a push is made to the trunk, automerger makes pull requests to all other branches and tries to merge the PRs.
 
-If it fails to do so, it assigns to the pusher of the commit to master for human intervention.
+If it fails to do so, it assigns to the pusher of the commit (configurable) for human intervention.
 
 ## Running
 
 You can use the executable from [releases](https://github.com/ofpiyush/automerger/releases/latest), or use the `ofpiyush/automerger` [docker image](https://hub.docker.com/r/ofpiyush/automerger).
 
-Use `/` or `/automerger` for hosting the app. At the moment the http server makes no assumptions about the path it runs on, but it might add paths like `/stats` and `/ping` in later versions.
+You can use path `/` or `/automerger` for hosting the app. At the moment the http server makes no assumptions about the path it runs on, but it might add paths like `/stats` or `/metrics` and `/ping` in later versions.
 
 Security comes first, so automerger refuses to run without a webhook secret and verifies signatures of all incoming events.
 
@@ -80,7 +80,7 @@ Usage of automerger:
 
 Contributions are very welcome and super encouraged.
 
-2 requests:
+Two requests:
 
 * If the change is big, open a proposal issue to discuss first.
 
@@ -91,3 +91,9 @@ Contributions are very welcome and super encouraged.
 * Abstract the implementation enough to add support for Bitbucket, GitLab etc.
 
 * Add support for AWS lambda so that hosting this can be cheap/free.
+
+# License
+
+Released under Unlicense. Check the [`LICENSE`](/LICENSE) for more details.
+
+No warranties and public domain for the source code, companion app and hosted version.
