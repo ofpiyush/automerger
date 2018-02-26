@@ -43,7 +43,7 @@ func ConfigureOrDie() *Config {
 	flag.StringVar(&config.Address, "address", "0.0.0.0:3000", "Address to listen on.")
 	flag.StringVar(&config.Branch, "branch", "master", "Branch to start PRs from.")
 	flag.StringVar(&config.ApiURL, "api-url", "https://api.github.com", "URL of github installation.")
-	flag.StringVar(&config.MergeMethod, "merge-method", "squash", "How to merge changes on default branch to current branch.")
+	flag.StringVar(&config.MergeMethod, "merge-method", "merge", "How to merge changes on default branch to current branch.")
 	flag.Var(&config.Assignees, "assignee", "Assignees if PR merge fails\nDefaults to the pusher.")
 
 	flag.Parse()
