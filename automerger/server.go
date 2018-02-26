@@ -10,12 +10,8 @@ var defaultBranch = "master"
 func Serve(config *Config) {
 	listener, err := net.Listen("tcp", config.Address)
 	fatalErr(err)
-	tokener := &Token{
-		Config: config,
-	}
 	pushHandler := &PushEventHandler{
-		Config:   config,
-		GetToken: tokener.GetorDie,
+		Config: config,
 	}
 
 	fatalErr(http.Serve(listener, pushHandler))

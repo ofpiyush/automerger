@@ -11,6 +11,10 @@ import (
 	"strings"
 )
 
+type PushEventHandler struct {
+	Config *Config
+}
+
 func (p *PushEventHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	defer r.Body.Close()
 	w.Header().Set("Content-Type", "application/json")
@@ -51,7 +55,8 @@ func (p *PushEventHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 }
 
 func (p *PushEventHandler) MergeBranches(repoURL, assignee string, installationID int) {
-	token, errs := p.GetToken(installationID)
+	token, errs := p.Config.GetToken(installationID)
+
 	if len(handleErrs(errs...)) > 0 {
 		return
 	}

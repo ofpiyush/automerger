@@ -47,7 +47,7 @@ func GithubRequest(method, url, token string, expectedCode int, body, result int
 	req.Header.Add("Authorization", fmt.Sprintf("Bearer %s", token))
 	req.Header.Add("Accept", "application/vnd.github.machine-man-preview+json")
 	client := &http.Client{
-		Timeout: 3 * time.Second,
+		Timeout: 10 * time.Second,
 	}
 	resp, err := client.Do(req)
 	if err != nil {

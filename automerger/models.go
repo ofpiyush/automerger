@@ -35,11 +35,6 @@ type PushEvent struct {
 	Pusher       Namer        `json:"pusher"`
 }
 
-type PushEventHandler struct {
-	Config   *Config
-	GetToken func(int) (string, []error)
-}
-
 type PullRequestAssignees struct {
 	Assignees Assignees `json:"assignees"`
 }
