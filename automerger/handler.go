@@ -9,6 +9,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"strings"
+	"time"
 )
 
 type PushEventHandler struct {
@@ -60,6 +61,10 @@ func (p *PushEventHandler) MergeBranches(repoURL, assignee string, installationI
 	if len(handleErrs(errs...)) > 0 {
 		return
 	}
+	// Todo: Find a more stable way to accomplish this.
+	// Sleep for 30 seconds to allow deleting branches.
+	time.Sleep(30 * time.Second)
+
 	var branches []Namer
 	if len(handleErrs(GithubRequest("GET", URL(repoURL, "branches"), token, http.StatusOK, nil, &branches)...)) > 0 {
 		return
